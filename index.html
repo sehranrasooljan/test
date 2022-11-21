@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>html form</title>
+        <link rel="stylesheet" href="styles.css">
+        <body>
+        <form action="up.php" method="post" enctype="multipart/form-data">
+           <fieldset>
+            <legend>  <h1>Online Registration</h1></legend>
+            First Name <input type="text"name="fname">
+           Last Name <input type="text"name="lname"><br><br>
+           DOB <input type="Date"name="DOB"><br><br>
+           Gender <input type="radio" value=" Male" name="r1">Male
+           <input type="radio"name="r1" value="Female" >Female <br><br>
+           ID Proof 
+            <select name="s1"> 
+                <option value="Adhaar">Adhaar Card</option>
+                <option value="DL">Driving License</option>
+                <option value="voter id">Voter ID</option>
+                <option value="PAN">PAN</option>
+            </select><br><br>
+
+            Upload ID <input type="file" accept="application/pdf" onchange="chkPDF(event)" name="docToUpload"><br><br>
+            
+            Upload Image<input type="file" accept="image/*" onchange="chkJPG(event)" name="fileToUpload"><br><br>
+            <input type="submit" value="Submit" name="submit"> 
+                <input type="reset" value="reset">
+           </fieldset>
+        </form>
+
+
+
+        <script>
+            function chkPDF(event){
+                if(event.target.files[0].size > 100000){
+                alert("File size too large. File must be less than 100KB.");
+                event.target.value = "";
+              }
+            }
+
+            function chkJPG(event){
+                if(event.target.files[0].size > 200000){
+                alert("File size too large. File must be less than 200KB.");
+                event.target.value = "";
+              }
+            }
+
+
+           
+          </script>
+
+        </body>
+    </head>
+</html>
